@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.skazbuka.unt-team-bar": {
+      "version": "https://github.com/Zebrainy/unit_team_bar.git?path=Packages/Unit-Game-Bar",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "hash": "23cc08687cf7685695d540a7fbfd0f218106794a"
+    },
     "com.unity.2d.animation": {
       "version": "6.0.3",
       "depth": 0,
