@@ -25,6 +25,7 @@ jobs:
         run: |
           ls
           pwd
+          mkdir /home/runner/work/_temp/_github_home
           echo "${{ secrets.GIT_CRED }}" > /home/runner/work/_temp/_github_home/.git-credentials
           git config --global credential.helper 'store --file /home/runner/work/_temp/_github_home/.git-credentials'
           ls -la /home/runner/work/_temp/_github_home
