@@ -21,14 +21,18 @@ jobs:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
-      - name: config --global credential
-        run: |
-          ls
-          pwd
-          mkdir /home/runner/work/_temp/_github_home
-          echo "${{ secrets.GIT_CRED }}" > /home/runner/work/_temp/_github_home/git-credentials
-          git config --global credential.helper 'store --file /home/runner/work/_temp/_github_home/git-credentials'
-          ls -la /home/runner/work/_temp/_github_home
+      # - name: config --global credential
+      #   run: |
+      #     ls
+      #     pwd
+      #     mkdir /home/runner/work/_temp/_github_home
+      #     echo "${{ secrets.GIT_CRED }}" > /home/runner/work/_temp/_github_home/git-credentials
+      #     git config --global credential.helper 'store --file /home/runner/work/_temp/_github_home/git-credentials'
+      #     ls -la /home/runner/work/_temp/_github_home
+      - uses: webfactory/ssh-agent@v0.5.2
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - uses: game-ci/unity-builder@v2.0.3
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
