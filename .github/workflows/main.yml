@@ -23,7 +23,7 @@ jobs:
           restore-keys: Library-
       - name: config --global credential
         run: |
-          git config --global credential.https://github.com.helper store --file ./.git-credentials
+          git config --global credential.https://github.com.helper "store --file ./.my-credentials"
           echo "${{ secrets.GIT_CRED }}" > ./.git-credentials
       - uses: game-ci/unity-builder@v2.0.3
         env:
