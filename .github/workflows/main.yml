@@ -25,10 +25,9 @@ jobs:
         run: |
           ls
           pwd
-          echo "${{ secrets.GIT_CRED }}" > /home/runner/.git-credentials
-          git config --global credential.helper 'store --file /home/runner/.git-credentials'
-          echo "${{ secrets.GIT_CRED }}" > /home/runner/.git-credentials
-          ls -la /home/runner
+          echo "${{ secrets.GIT_CRED }}" > /home/runner/work/_temp/_github_home/.git-credentials
+          git config --global credential.helper 'store --file /home/runner/work/_temp/_github_home/.git-credentials'
+          ls -la /home/runner/work/_temp/_github_home
       - uses: game-ci/unity-builder@v2.0.3
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
